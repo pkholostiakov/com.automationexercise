@@ -31,8 +31,8 @@ public class ProductsSteps {
 		productsPage.verify();
 	}
 
-	@When("user clicks on the first product from the product list")
-	public void user_clicks_on_the_first_product_from_the_product_list() {
+	@When("user clicks on the product from the product list")
+	public void user_clicks_on_the_product_from_the_product_list() {
 		productsPage.clickViewProduct(1);
 	}
 

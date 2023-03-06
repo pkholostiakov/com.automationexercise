@@ -114,7 +114,7 @@ Test Case 10: Verify Subscription in home page
 7. Verify success message 'You have been successfully subscribed!' is visible
 
 
-Test Case 11: Verify Subscription in Cart page             ///////////////// FROM HERE //////////////////
+Test Case 11: Verify Subscription in Cart page             
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -125,7 +125,7 @@ Test Case 11: Verify Subscription in Cart page             ///////////////// FRO
 8. Verify success message 'You have been successfully subscribed!' is visible
 
 
-Test Case 12: Add Products in Cart
+Test Case 12: Add Products in Cart							
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -138,7 +138,7 @@ Test Case 12: Add Products in Cart
 10. Verify their prices, quantity and total price
 
 
-Test Case 13: Verify Product quantity in Cart
+Test Case 13: Verify Product quantity in Cart                 
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -150,7 +150,7 @@ Test Case 13: Verify Product quantity in Cart
 9. Verify that product is displayed in cart page with exact quantity
 
 
-Test Case 14: Place Order: Register while Checkout
+Test Case 14: Place Order: Register while Checkout                     ///////////////// FROM HERE //////////////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -207,7 +207,7 @@ Test Case 16: Place Order: Login before Checkout
 15. Verify success message 'Your order has been placed successfully!'
 
 
-Test Case 17: Remove Products From Cart
+Test Case 17: Remove Products From Cart                                      		///////////////done//////////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -254,7 +254,7 @@ Test Case 20: Search Products and Verify Cart After Login
 12. Verify that those products are visible in cart after login as well
 
 
-Test Case 21: Add review on product
+Test Case 21: Add review on product                                         //////////////done/////////////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Click on 'Products' button
@@ -266,7 +266,7 @@ Test Case 21: Add review on product
 9. Verify success message 'Thank you for your review.'
 
 
-Test Case 22: Add to cart from Recommended items
+Test Case 22: Add to cart from Recommended items							//////////////done/////////////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Scroll to bottom of page
@@ -312,7 +312,7 @@ Test Case 24: Download Invoice after purchase order
 19. Click 'Download Invoice' button and verify invoice is downloaded successfully.  ///////////////// TO HERE //////////////////
 
 
-Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality
+Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality			////////////////done////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -322,7 +322,7 @@ Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionalit
 7. Verify that page is scrolled up and 'Full-Fledged practice website for Automation Engineers' text is visible on screen
 
 
-Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality
+Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality          ////////////////done////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully

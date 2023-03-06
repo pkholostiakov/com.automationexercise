@@ -57,6 +57,9 @@ public class ProductDetailsPage extends HomePage{
 	@FindBy (xpath = "//form[@id='review-form']//button[@id='button-review']")
 	private WebElement submitReviewBtn;
 	
+	@FindBy (xpath = "//form[@id='review-form']//div[contains(@class,'alert-success')]")
+	private WebElement successReviewMsg;
+	
 	public ProductDetailsPage(WebDriver driver) {
 		super(driver);
 		PageFactory.initElements(driver, this);
@@ -68,6 +71,14 @@ public class ProductDetailsPage extends HomePage{
 	
 	public static WebElement getCategory() {
 		return category;
+	}
+	
+	public WebElement getSuccessReviewMsg() {
+		return successReviewMsg;
+	}
+	
+	public WebElement getSubmitReviewBtn() {
+		return submitReviewBtn;
 	}
 
 	public void verify() {
@@ -92,5 +103,10 @@ public class ProductDetailsPage extends HomePage{
 		Assert.assertTrue("Review text input is not enabled",reviewTextInput.isEnabled());
 		Assert.assertTrue("Review submit button is not enabled",submitReviewBtn.isEnabled());
 	}
-
+	
+	public void leaveReview(String name, String email, String review) {
+		reviewNameInput.sendKeys(name);
+		reviewEmailInput.sendKeys(email);
+		reviewTextInput.sendKeys(review);
+	}
 }

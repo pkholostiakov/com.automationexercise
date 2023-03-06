@@ -5,7 +5,6 @@ import static com.automationexercise.utils.ConfigReader.getProperty;
 import java.util.List;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

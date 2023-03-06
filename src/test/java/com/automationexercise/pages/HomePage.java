@@ -35,6 +35,15 @@ public class HomePage extends BasePage{
 	@FindBy (xpath = "//div[@class='choose']//a[contains(@href,'/product_details/')]")
 	protected List<WebElement> viewProductBtnList;
 	
+	@FindBy (xpath = "//div[@class='modal-content']")
+	protected WebElement AddedToCartMsg;
+	
+	@FindBy (xpath = "//div[@class='modal-content']//button")
+	protected WebElement continueShopingBtn;
+	
+	@FindBy (xpath = "//div[@class='modal-body']//p//a")
+	protected WebElement viewCartBtn;
+	
 	@FindBy (id = "slider-carousel")
 	private WebElement sliderCarousel;
 
@@ -48,6 +57,14 @@ public class HomePage extends BasePage{
 
 	public WebElement getSliderCarousel() {
 		return sliderCarousel;
+	}
+	
+	public WebElement getContinueShopingBtn() {
+		return continueShopingBtn;
+	}
+	
+	public WebElement getViewCartBtn() {
+		return viewCartBtn;
 	}
 
 	@Override

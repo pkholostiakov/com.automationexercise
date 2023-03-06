@@ -66,4 +66,9 @@ public class HomePageSteps {
 		homePage.userIsSubscribed();
 	}
 	
+    @When ("user clicks cart button")
+    public void user_clicks_cart_button() {
+    	BasePage.clickMenuBtn("cart");
+    }
+	
 }

@@ -73,6 +73,15 @@ public class ProductsPage extends HomePage{
 		driver.findElement(By.xpath(xpath)).click();
 	}
 	
+	public void clickAddToCart(int number) {
+		if(number > addToCartBtnList.size())
+			number = addToCartBtnList.size();
+		if(number < 1)
+			number = 1;
+		String xpath = "//div[contains(@class,'productinfo')]//a)[" + number +"]";
+		driver.findElement(By.xpath(xpath)).click();
+	}
+	
 	public void searchProduct() {
 		searchProductInput.sendKeys(ConfigReader.getProperty("searchingQuiry"));
 	}
