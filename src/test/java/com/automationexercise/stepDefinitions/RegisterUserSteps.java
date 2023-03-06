@@ -45,7 +45,7 @@ public class RegisterUserSteps {
 	}
 
 	@Then("user is navigated to login page")
-	public void user_is_navigated_to_login_page() {
+	public void user_is_navigated_to_login_page() throws InterruptedException {
 		basePage.checkElementIsDisplayed(loginPage.getSignUpbtn());
 	}
 
@@ -66,7 +66,7 @@ public class RegisterUserSteps {
 	}
 
 	@Then("user is navigated to sign up page")
-	public void user_is_navigated_to_sign_up_page() {
+	public void user_is_navigated_to_sign_up_page() throws InterruptedException {
 		basePage.checkElementIsDisplayed(signUpPage.getCreateAccountBtn());
 	}
 
@@ -101,7 +101,7 @@ public class RegisterUserSteps {
 	}
 
 	@When("user is navigated to account created page")
-	public void user_is_navigated_to_account_created_page() {
+	public void user_is_navigated_to_account_created_page() throws InterruptedException {
 		basePage.checkElementIsDisplayed(accountCreatedPage.getContinueBtn());
 	}
 
@@ -116,8 +116,8 @@ public class RegisterUserSteps {
 	}
 
 	@When("user is navigated to the home page")
-	public void user_is_navigated_to_the_home_page() {
-		basePage.checkElementIsDisplayedIFrame(homePage.getSliderCarousel());
+	public void user_is_navigated_to_the_home_page() throws InterruptedException {
+		basePage.checkElementIsDisplayed(homePage.getSliderCarousel());
 	}
 
 	@When("user is logged in as new user")
@@ -135,7 +135,7 @@ public class RegisterUserSteps {
 		BasePage.clickMenuBtn("delete account");
 	}
     @Then ("user is navigated to account deleted page")
-    public void user_is_navigated_to_account_deleted_page() {
+    public void user_is_navigated_to_account_deleted_page() throws InterruptedException {
     	basePage.checkElementIsDisplayed(accountDeletedPage.getContinueBtn());
 	}
 

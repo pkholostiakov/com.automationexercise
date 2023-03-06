@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,10 +19,10 @@ import com.automationexercise.utils.Driver;
 public class BasePage {
 
 	protected static WebDriver driver = Driver.getDriver();
-	protected WebDriverWait wait;
+	protected static WebDriverWait wait;
 
 	@FindBy (xpath = "//img[contains(@src,'logo')]")
-	protected WebElement mainLogo;
+	protected static WebElement mainLogo;
 
 	@FindBy (xpath = "//ul[contains(@class,'navbar')]//li")
 	protected static List<WebElement> menuBtns;
@@ -34,10 +35,25 @@ public class BasePage {
 
 	@FindBy (id = "scrollUp")
 	protected WebElement scrollUpBtn;
+	
+	@FindBy (xpath = "//div[@class='alert-success alert']")
+	private WebElement subscribeMsg;
 
 	public BasePage(WebDriver driver) {
 		BasePage.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+
+	public WebElement getScrollUpBtn() {
+		return scrollUpBtn;
+	}
+
+	public WebElement getSubscribeBtn() {
+		return subscribeBtn;
+	}
+
+	public static List<WebElement> getMenuBtns() {
+		return menuBtns;
 	}
 
 	public static void clickMenuBtn(String nameBtn) {
@@ -53,7 +69,6 @@ public class BasePage {
 			}
 		if (i==0) {
 			System.out.println("NAME OF BUTTON IS NOT CORRECT");
-			System.exit(0);
 		}
 	}
 
@@ -82,24 +97,29 @@ public class BasePage {
 	}
 
 	public void checkElementIsDisplayed(WebElement element) {
-		wait = new WebDriverWait(driver,3);
+		wait = new WebDriverWait(driver,1);
 		wait.until(ExpectedConditions.visibilityOf(element));
 		Assert.assertTrue(element.getAttribute("id") + "is not displayed",element.isDisplayed());
 	}
-
-	public void checkElementIsDisplayedIFrame(WebElement element) {
-		try {
-			String dismissBtn = "//div[@id='dismiss-button']";
-			driver.switchTo().frame("aswift_1");
-			driver.switchTo().frame("ad_iframe");
-			driver.findElement(By.xpath(dismissBtn)).click();
-			driver.switchTo().defaultContent();
-			wait = new WebDriverWait(driver,2);
-			wait.until(ExpectedConditions.visibilityOf(element));
-			Assert.assertTrue(element.getAttribute("id") + "is not displayed",element.isDisplayed());
-		} catch (Exception e) {
-			e.printStackTrace();
+	
+	public void scroll(String direction) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		switch (direction) {
+		case "down":
+			   js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+			break;
+		case "up":
+			   js.executeScript("window.scrollBy(0,0)");
+			   break;
+		default:
+			System.out.println("Wrong direction");
+			break;
 		}
-
+	}
+	
+	public void userIsSubscribed() {
+		wait = new WebDriverWait(driver,1);
+		wait.until(ExpectedConditions.visibilityOf(subscribeMsg));
+		Assert.assertTrue(subscribeMsg.isDisplayed());
 	}
 }

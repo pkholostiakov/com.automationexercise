@@ -8,13 +8,13 @@ Feature: Test login user functionality
     Then user is navigated to login page
     And login page is visible successfully
 
-  Scenario: 
+  Scenario: Login with valid credentials
     When user enters valid credentials below login to your accout 
     And user clicks login button 
     And user is navigated to the home page
     And user is logged in as particular user
 
-  Scenario: 
+  Scenario: Login with invalid credentials
     When user enters invalid credentials below login to your accout 
     And user clicks login button 
     Then invalid credentials message is appears 

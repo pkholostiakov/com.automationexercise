@@ -28,7 +28,6 @@ public class AccountCreatedPage extends BasePage{
 		PageFactory.initElements(driver, this);
 	}
 
-	@Override
 	public void verify() {
 		super.verify();
 		Assert.assertTrue(headerMsg.getText().trim().equals("ACCOUNT CREATED!"));

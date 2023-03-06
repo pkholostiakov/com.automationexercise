@@ -114,7 +114,7 @@ Test Case 10: Verify Subscription in home page
 7. Verify success message 'You have been successfully subscribed!' is visible
 
 
-Test Case 11: Verify Subscription in Cart page
+Test Case 11: Verify Subscription in Cart page             ///////////////// FROM HERE //////////////////
 1. Launch browser
 2. Navigate to url 'http://automationexercise.com'
 3. Verify that home page is visible successfully
@@ -309,7 +309,7 @@ Test Case 24: Download Invoice after purchase order
 16. Enter payment details: Name on Card, Card Number, CVC, Expiration date
 17. Click 'Pay and Confirm Order' button
 18. Verify success message 'Your order has been placed successfully!'
-19. Click 'Download Invoice' button and verify invoice is downloaded successfully.
+19. Click 'Download Invoice' button and verify invoice is downloaded successfully.  ///////////////// TO HERE //////////////////
 
 
 Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality

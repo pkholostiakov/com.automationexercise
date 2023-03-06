@@ -25,7 +25,10 @@ public class Driver {
 
         if (browser.trim().equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
-            options.setHeadless(headless);
+            if(ConfigReader.getProperty("headless").equals("true"))
+            	options.addArguments("--headless");
+            options.addArguments("--disable-gpu");
+            options.addArguments("user-data-dir=C:\\Users\\pavel\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
         } else if (browser.trim().equalsIgnoreCase("edge")) {
