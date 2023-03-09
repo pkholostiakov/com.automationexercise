@@ -11,4 +11,8 @@ public class Utils {
 	public static String generateMail() {
 		return (RandomStringUtils.random(10,characters)+"@gmail.com");
 	}
+	
+	public static int randomPositiveIntBelow(int number) {
+		return (int)((Math.random()*number)+1);
+	}
 }

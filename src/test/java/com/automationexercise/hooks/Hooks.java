@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import com.automationexercise.pages.BasePage;
+import com.automationexercise.pages.HomePage;
 import com.automationexercise.utils.Driver;
 
 import io.cucumber.java.After;
@@ -25,6 +26,7 @@ public class Hooks {
 	public void setUp() {
 		driver = Driver.getDriver();
 		driver.get(getProperty("url"));
+		HomePage.getAllAddedItems().clear();
 	}
 
 	@After

@@ -1,6 +1,7 @@
 package com.automationexercise.utils;
 
 import java.util.concurrent.TimeUnit;
+import static com.automationexercise.utils.ConfigReader.*;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,17 +19,16 @@ public class Driver {
 
 	public static WebDriver getDriver() {
 		if(driver == null) {
-		String browser = ConfigReader.getProperty("browser");
-        boolean headless = Boolean.parseBoolean(ConfigReader.getProperty("headless"));
-        int pageLoadTime = Integer.parseInt(ConfigReader.getProperty("pageLoadTime"));
-        int implicitWait = Integer.parseInt(ConfigReader.getProperty("implicitWait"));
-
+		String browser = getProperty("browser");
+        boolean headless = Boolean.parseBoolean(getProperty("headless"));
+        int pageLoadTime = Integer.parseInt(getProperty("pageLoadTime"));
+        int implicitWait = Integer.parseInt(getProperty("implicitWait"));
         if (browser.trim().equalsIgnoreCase("chrome")) {
             ChromeOptions options = new ChromeOptions();
-            if(ConfigReader.getProperty("headless").equals("true"))
+            if(getProperty("headless").equals("true"))
             	options.addArguments("--headless");
-            options.addArguments("--disable-gpu");
             options.addArguments("user-data-dir=C:\\Users\\pavel\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 1");
+            options.addArguments("--disable-gpu");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver(options);
         } else if (browser.trim().equalsIgnoreCase("edge")) {

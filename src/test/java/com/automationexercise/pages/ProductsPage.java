@@ -18,9 +18,6 @@ import com.automationexercise.utils.ConfigReader;
 
 public class ProductsPage extends HomePage{
 	
-	private BasePage basePage;
-	private String itemName;
-	
 	@FindBy (id = "sale_image")
 	private WebElement specialOfferLogo;
 	
@@ -64,29 +61,11 @@ public class ProductsPage extends HomePage{
 		}
 	}
 	
-	public void clickViewProduct(int number) {
-		if(number > viewProductBtnList.size())
-			number = viewProductBtnList.size();
-		if(number < 1)
-			number = 1;
-		String xpath = "(//div[@class='choose']//a)[" + number +"]";
-		driver.findElement(By.xpath(xpath)).click();
-	}
-	
-	public void clickAddToCart(int number) {
-		if(number > addToCartBtnList.size())
-			number = addToCartBtnList.size();
-		if(number < 1)
-			number = 1;
-		String xpath = "//div[contains(@class,'productinfo')]//a)[" + number +"]";
-		driver.findElement(By.xpath(xpath)).click();
-	}
-	
 	public void searchProduct() {
 		searchProductInput.sendKeys(ConfigReader.getProperty("searchingQuiry"));
 	}
 	
-	public void checkSearchingOutput() throws InterruptedException {
+	public void checkSearchingOutput() {
 		itemName = "//div[contains(@class,'productinfo')]//p";
 		List<WebElement> foundItemsNames = driver.findElements(By.xpath(itemName));
 		String openInNewTab = Keys.chord(Keys.CONTROL,Keys.RETURN);

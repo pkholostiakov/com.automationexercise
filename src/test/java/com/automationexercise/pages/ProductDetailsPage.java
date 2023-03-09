@@ -1,6 +1,7 @@
 package com.automationexercise.pages;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -8,9 +9,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductDetailsPage extends HomePage{
+import com.automationexercise.utils.ConfigReader;
 
-	private BasePage basePage;
+public class ProductDetailsPage extends HomePage{
 	
 	@FindBy (xpath = "//div[@class='view-product']//img")
 	private WebElement itemImg;
@@ -28,7 +29,7 @@ public class ProductDetailsPage extends HomePage{
 	private WebElement price;
 	
 	@FindBy (id = "quantity")
-	private WebElement quantityInput;
+	private static WebElement quantityInput;
 	
 	@FindBy (xpath = "//div[@class='product-information']//*[contains(text(),'Availability')]")
 	private WebElement availability;
@@ -62,6 +63,7 @@ public class ProductDetailsPage extends HomePage{
 	
 	public ProductDetailsPage(WebDriver driver) {
 		super(driver);
+
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -81,14 +83,20 @@ public class ProductDetailsPage extends HomePage{
 		return submitReviewBtn;
 	}
 
+	public static WebElement getQuantityInput() {
+		return quantityInput;
+	}
+	
+	public WebElement getAddToCartBtn() {
+		return addToCartBtn;
+	}
+
 	public void verify() {
 		basePage = new BasePage(driver);
 		basePage.verify();
-		
 		listOfButtons = new ArrayList<>();
 		listOfButtons.add(categoryFilterList);
 		listOfButtons.add(brandsFilterList);
-		
 		for (int i = 0; i < listOfButtons.size(); i++) {
 			for (WebElement webElement : listOfButtons.get(i)) {
 			Assert.assertTrue(webElement.getText() + " button is not enabled",webElement.isEnabled());
@@ -104,9 +112,30 @@ public class ProductDetailsPage extends HomePage{
 		Assert.assertTrue("Review submit button is not enabled",submitReviewBtn.isEnabled());
 	}
 	
+	public void entersQuantity() {
+		quantityInput.clear();
+		quantityInput.sendKeys(ConfigReader.getProperty("commonQuantityIncreases"));
+	}
+	
 	public void leaveReview(String name, String email, String review) {
 		reviewNameInput.sendKeys(name);
 		reviewEmailInput.sendKeys(email);
 		reviewTextInput.sendKeys(review);
+	}
+	
+	public void addToCartButtonNearQuantity(){
+		addToCartBtn.click();
+		HomePage.getItemInfo(getItemInfoFromProductDetailPage());
+	}
+	
+	private LinkedHashMap<String,String> getItemInfoFromProductDetailPage() {
+		LinkedHashMap<String,String> elements = new LinkedHashMap<>();
+		String quantity = ConfigReader.getProperty("commonQuantityIncreases");
+		elements.put(replacedAtributes[0],itemImg.getAttribute("src"));
+		elements.put(replacedAtributes[1],productName.getText().trim());
+		elements.put(replacedAtributes[2],price.getText().trim());
+		elements.put("quantity",quantity);
+		elements.put("total","Rs. " + String.valueOf(Integer.parseInt(quantity) * Integer.parseInt(addedItem.get("price").replaceAll("[^0-9]+", ""))));
+		return elements;
 	}
 }
