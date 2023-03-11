@@ -175,7 +175,7 @@ public class HomePage extends BasePage{
 	}
 	
 	public void clickContinueShopBtn() {
-		wait = new WebDriverWait(driver,1);
+		wait = new WebDriverWait(driver,3);
 		wait.until(ExpectedConditions.visibilityOf(continueShopingBtn));
 		continueShopingBtn.click();
 	}
@@ -197,7 +197,6 @@ public class HomePage extends BasePage{
 		number = randomPositiveIntBelow(brandsFilterList.size());
 		xpath = "(//div[@class='brands-name']//ul//li)["+number+"]";
 		nameOfBrand = driver.findElement(By.xpath(xpath)).getText().trim().substring(4);
-		System.out.println("THE BRAND BUTTON TO CLICK IS: " + nameOfBrand);
 		driver.findElement(By.xpath(xpath+"//a")).click();
 	}
 	

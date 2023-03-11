@@ -96,7 +96,7 @@ public class BasePage {
 	}
 
 	public void checkElementIsDisplayed(WebElement element) {
-		wait = new WebDriverWait(driver,1);
+		wait = new WebDriverWait(driver,2);
 		wait.until(ExpectedConditions.visibilityOf(element));
 		Assert.assertTrue(element.getAttribute("id") + "is not displayed",element.isDisplayed());
 	}

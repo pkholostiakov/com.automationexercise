@@ -20,6 +20,9 @@ public class ViewCartPage extends BasePage {
 	@FindBy (xpath = "//a[contains(@class,'check_out')]")
 	private WebElement proceedToCheckoutBtn;
 	
+	@FindBy (xpath = "//div[@class='modal-body']//a[contains(@href,'/login')]")
+	private WebElement registerOrLoginBtn;
+	
 	@FindBy (xpath = "//table[contains(@id,'info_table')]//tr[contains(@id,'product-')]")
 	private List<WebElement> rowsList;
 	
@@ -52,6 +55,14 @@ public class ViewCartPage extends BasePage {
 	
 	public WebElement getHomePageBtn() {
 		return homePageBtn;
+	}
+
+	public WebElement getProceedToCheckoutBtn() {
+		return proceedToCheckoutBtn;
+	}
+
+	public WebElement getRegisterOrLoginBtn() {
+		return registerOrLoginBtn;
 	}
 
 	public ViewCartPage(WebDriver driver) {

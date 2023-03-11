@@ -134,6 +134,7 @@ public class RegisterUserSteps {
     public void user_click_delete_account_button() {
 		BasePage.clickMenuBtn("delete account");
 	}
+    
     @Then ("user is navigated to account deleted page")
     public void user_is_navigated_to_account_deleted_page() throws InterruptedException {
     	basePage.checkElementIsDisplayed(accountDeletedPage.getContinueBtn());
